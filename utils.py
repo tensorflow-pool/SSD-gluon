@@ -2,17 +2,19 @@
 """
 Utlize codes.
 """
+import logging
 import os
+import time
+
+import mxnet as mx
+from mxnet import autograd
 from mxnet import gluon
-from mxnet.gluon import nn
-from mxnet.contrib.ndarray import MultiBoxTarget
 # from mxnet.contrib.symbol import MultiBoxTarget
 from mxnet import metric
-from mxnet import autograd
 from mxnet import nd
-import mxnet as mx
-import time
-import logging
+from mxnet.contrib.ndarray import MultiBoxTarget
+from mxnet.gluon import nn
+
 
 def try_gpu():
     """If GPU is available, return mx.gpu(0); else return mx.cpu()"""
@@ -22,6 +24,7 @@ def try_gpu():
     except:
         ctx = mx.cpu()
     return ctx
+
 
 def try_all_gpus():
     """Return all available GPUs, or [mx.gpu()] if there is no GPU"""
@@ -37,6 +40,7 @@ def try_all_gpus():
         ctx_list = [mx.cpu()]
     return ctx_list
 
+
 # SSD -- anchor box, see scripts/generate_anchor_box.py for detial.
 
 # Predict the class of object, see utils.py for detial.
@@ -51,9 +55,13 @@ def try_all_gpus():
 
 我们定义个一个这样的类别分类器函数.
 '''
+
+
 def class_predictor(num_anchors, num_classes):
     """return a layer to predict classes"""
     return nn.Conv2D(channels=num_anchors * (num_classes + 1), kernel_size=3, padding=1)
+
+
 # Usage:
 '''
 cls_pred = class_predictor(5, 10)
@@ -70,9 +78,13 @@ y.shape # [batch_size, num_channels, 20, 20].
 假设输出是Y, 那么对应输入中第n个样本的第(i, j)像素为中心的锚框的转换在Y[n,:,i,j]里.
 具体来说, 对于第a个锚框, 它的变换在a * 4到a * 4 + 3通道里.
 '''
+
+
 def box_predictor(num_anchors):
     """return a layer to predict delta locations"""
     return nn.Conv2D(channels=num_anchors * 4, kernel_size=3, padding=1)
+
+
 # Usage
 '''
 box_pred = box_predictor(10)
@@ -91,6 +103,8 @@ y.shape
 首先我们将通道移到最后的维度, 然后将其展成2D数组. 因为第一个维度是样本个数, 所以不同输出之间是不变.
 我们可以将所有输出在第二个维度上拼接起来.
 '''
+
+
 # Merge the predicted output from other layers, see utils.py for detial.
 # First we will flatten all the outputs to 2D array, then concat these at second dim, i.e. dim=1.
 def flatten_prediction(pred):
@@ -98,6 +112,7 @@ def flatten_prediction(pred):
     # NDArray call transpose() to permute the dimensions of an array.
     # call flatten() to flatten the input array into a 2-D array. 
     # The first dim of result is constant, i.e. batch_size. The second dim is channel * height * width. 
+
 
 def concat_predictions(preds):
     return nd.concat(*preds, dim=1)
@@ -107,6 +122,8 @@ def concat_predictions(preds):
     dim: the dimension to be concated.
     return NDArray.
     '''
+
+
 # Usage
 '''
 flat_y1 = flatten_prediction(y1)
@@ -138,6 +155,8 @@ IoU值越大表示两个边框很相似, 越小则两个边框不相似。
    就是对类预测值排序, 选取数值最小的哪一些困难的负类锚框.
 我们可以使用MultiBoxTarget来完成上面这两个操作.
 '''
+
+
 def training_targets(anchors, class_preds, labels):
     class_preds = class_preds.transpose(axes=(0, 2, 1))
     return MultiBoxTarget(anchors, labels, class_preds)
@@ -147,6 +166,8 @@ def training_targets(anchors, class_preds, labels):
     label: NDArray.
     overlap_threshold: default=0.5.
     '''
+
+
 # Usage
 # out = training_targets(anchors, class_preds, batch.label[0][0:1]) 
 '''
@@ -166,6 +187,8 @@ log(p_j), 这里j是真实的类别, 且p_j是对于的预测概率. 我们使�
 
 演示不同gamma导致的变化. 可以看到, 增加gamma可以使得对正类预测值比较大时损失变小.
 '''
+
+
 # 这个自定义的损失函数可以简单通过继承gluon.loss.Loss来实现.
 class FocalLoss(gluon.loss.Loss):
     def __init__(self, axis=-1, alpha=0.25, gamma=2, batch_axis=0, **kwargs):
@@ -180,6 +203,8 @@ class FocalLoss(gluon.loss.Loss):
         pj = output.pick(label, axis=self._axis, keepdims=True)
         loss = -self._alpha * ((1 - pj) ** self._gamma) * pj.log()
         return loss.mean(axis=self._batch_axis, exclude=True)
+
+
 # Usage
 # cls_loss = FocalLoss()
 
@@ -196,6 +221,8 @@ f(x) = |
 
 图示sigma的平滑L1损失和L2损失的区别. mxnet include Smooth L1 Loss,  mxnet.ndarray.smooth_l1.
 '''
+
+
 # 我们同样通过继承Loss来定义这个损失. 同时它接受一个额外参数mask, 这是用来屏蔽掉不需要被惩罚的负例样本.
 class SmoothL1Loss(gluon.loss.Loss):
     def __init__(self, batch_axis=0, **kwargs):
@@ -205,6 +232,8 @@ class SmoothL1Loss(gluon.loss.Loss):
     def hybrid_forward(self, F, output, label, mask):
         loss = F.smooth_l1((output - label) * mask, scalar=1.0)
         return loss.mean(self._batch_axis, exclude=True)
+
+
 # box_loss = SmoothL1Loss()
 
 def evaluate_accuracy(data_iterator, net, ctx, cls_metric, box_metric):
@@ -214,20 +243,21 @@ def evaluate_accuracy(data_iterator, net, ctx, cls_metric, box_metric):
     for _, batch in enumerate(data_iterator):
         x = batch.data[0].as_in_context(ctx)
         y = batch.label[0].as_in_context(ctx)
-        
+
         anchors, class_preds, box_preds = net(x)
         box_target, box_mask, cls_target = training_targets(
             anchors, class_preds, y)
-        
+
         # update metrics
         cls_metric.update([cls_target], [class_preds.transpose((0, 2, 1))])
         box_metric.update([box_target], [box_preds * box_mask])
 
     return cls_metric, box_metric
 
-def train(batch_size, train_data, test_data, net, trainer, ctx, num_epochs, 
-        lr_step_epochs=None, lr_decay=0.1, print_batches=100, load_epoch=0, model_prefix=None, 
-        period=1):
+
+def train(batch_size, train_data, test_data, net, trainer, ctx, num_epochs,
+          lr_step_epochs=None, lr_decay=0.1, print_batches=20, load_epoch=0, model_prefix=None,
+          period=1):
     """
     Train a network.
     required=True for those uninitialized arguments.
@@ -269,11 +299,11 @@ def train(batch_size, train_data, test_data, net, trainer, ctx, num_epochs,
     评估边框预测的好坏的一个常用是是平均绝对误差. 但是平方误差对于大的误差给予过大的值, 从而数值上过于敏感.
     平均绝对误差就是将二次项替换成绝对值, 具体来说就是预测的边框和真实边框在4个维度上的差值的绝对值.
     '''
-    cls_metric = metric.Accuracy() # classification evaluation.
-    box_metric = metric.MAE() # box prediction evaluation.
+    cls_metric = metric.Accuracy()  # classification evaluation.
+    box_metric = metric.MAE()  # box prediction evaluation.
     # validating
-    val_cls_metric = metric.Accuracy() # classification evaluation.
-    val_box_metric = metric.MAE() # box prediction evaluation.
+    val_cls_metric = metric.Accuracy()  # classification evaluation.
+    val_box_metric = metric.MAE()  # box prediction evaluation.
 
     # the CUDA implementation requres each image has at least 3 lables. 
     # Padd two -1 labels for each instance. Use when loading pikachu dataset. ???
@@ -282,6 +312,7 @@ def train(batch_size, train_data, test_data, net, trainer, ctx, num_epochs,
 
     for epoch in range(load_epoch, num_epochs):
         train_loss, n = 0.0, 0.0
+        train_loss1, train_loss2 = 0, 0
         # reset data iterators and metrics. Must reset!
         train_data.reset()
         cls_metric.reset()
@@ -303,6 +334,8 @@ def train(batch_size, train_data, test_data, net, trainer, ctx, num_epochs,
                 loss2 = box_loss(box_preds, box_target, box_mask)
                 loss = loss1 + loss2
             loss.backward()
+            train_loss1 += sum([l.sum().asscalar() for l in loss1])
+            train_loss2 += sum([l.sum().asscalar() for l in loss2])
             train_loss += sum([l.sum().asscalar() for l in loss])
             trainer.step(batch_size)
             n += batch_size
@@ -310,18 +343,18 @@ def train(batch_size, train_data, test_data, net, trainer, ctx, num_epochs,
             cls_metric.update([cls_target], [class_preds.transpose((0, 2, 1))])
             box_metric.update([box_target], [box_preds * box_mask])
 
-            if print_batches and (i+1) % print_batches == 0:
+            if print_batches and (i + 1) % print_batches == 0:
                 logging.info(
-                    "Epoch [%d]. Batch [%d]. Loss [%f]. Time %.1f sec" % 
-                    (epoch, n, train_loss/n, time.time() - tic))
+                    "Epoch [%d]. Batch [%d]. Loss [%f]. Loss_cls [%f]. Loss_box [%f]. Time %.1f sec" %
+                    (epoch, n, train_loss / n, train_loss1 / n, train_loss2 / n, time.time() - tic))
                 # cls_metric.get() will return a NDArray (string, float).
                 # print
-                print("Train acc:", cls_metric.get(), box_metric.get())
+                logging.info("Train acc: %s %s ", cls_metric.get(), box_metric.get())
+                tic = time.time()
 
-        val_cls_metric, val_box_metric = evaluate_accuracy(test_data, net, ctx, val_cls_metric, 
-            val_box_metric)
+        val_cls_metric, val_box_metric = evaluate_accuracy(test_data, net, ctx, val_cls_metric, val_box_metric)
         # print
-        print("Val acc: ", val_cls_metric.get(), val_box_metric.get())
+        logging.info("Val acc: %s %s ", val_cls_metric.get(), val_box_metric.get())
 
         # save checkpoint
         if (epoch + 1) % period == 0:

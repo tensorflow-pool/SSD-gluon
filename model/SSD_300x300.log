@@ -1,0 +1,158 @@
+2019-03-12 09:27:12,633 [INFO] Using 1 threads for decoding...
+2019-03-12 09:27:12,633 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 09:27:12,634 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/trainval.rec...
+2019-03-12 09:27:52,653 [INFO] Using 1 threads for decoding...
+2019-03-12 09:27:52,653 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 09:27:52,653 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-12 09:27:55,023 [INFO] Using 1 threads for decoding...
+2019-03-12 09:27:55,024 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 09:27:55,024 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/val.rec...
+2019-03-12 09:27:56,323 [INFO] Start training on gpu(0)
+2019-03-12 09:28:33,885 [INFO] Using 1 threads for decoding...
+2019-03-12 09:28:33,886 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 09:28:33,886 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-12 09:28:36,302 [INFO] Using 1 threads for decoding...
+2019-03-12 09:28:36,302 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 09:28:36,302 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/val.rec...
+2019-03-12 09:28:37,383 [INFO] Start training on gpu(0)
+2019-03-12 09:29:18,953 [INFO] Epoch [0]. Batch [3200]. Loss [0.044496]. Time 41.5 sec
+2019-03-12 09:29:58,237 [INFO] Epoch [0]. Batch [6400]. Loss [0.031922]. Time 80.8 sec
+2019-03-12 09:30:37,494 [INFO] Epoch [0]. Batch [9600]. Loss [0.027157]. Time 120.1 sec
+2019-03-12 09:31:16,967 [INFO] Epoch [0]. Batch [12800]. Loss [0.024583]. Time 159.6 sec
+2019-03-12 09:31:55,837 [INFO] Epoch [0]. Batch [16000]. Loss [0.022953]. Time 198.4 sec
+2019-03-12 09:32:35,052 [INFO] Epoch [0]. Batch [19200]. Loss [0.022001]. Time 237.6 sec
+2019-03-12 09:33:14,586 [INFO] Epoch [0]. Batch [22400]. Loss [0.021131]. Time 277.2 sec
+2019-03-12 09:33:54,242 [INFO] Epoch [0]. Batch [25600]. Loss [0.020421]. Time 316.8 sec
+2019-03-12 09:34:33,745 [INFO] Epoch [0]. Batch [28800]. Loss [0.019826]. Time 356.3 sec
+2019-03-12 09:35:12,995 [INFO] Epoch [0]. Batch [32000]. Loss [0.019345]. Time 395.6 sec
+2019-03-12 09:35:52,201 [INFO] Epoch [0]. Batch [35200]. Loss [0.019009]. Time 434.8 sec
+2019-03-12 09:36:31,690 [INFO] Epoch [0]. Batch [38400]. Loss [0.018673]. Time 474.3 sec
+2019-03-12 09:37:11,366 [INFO] Epoch [0]. Batch [41600]. Loss [0.018370]. Time 514.0 sec
+2019-03-12 09:37:50,591 [INFO] Epoch [0]. Batch [44800]. Loss [0.018082]. Time 553.2 sec
+2019-03-12 09:38:30,179 [INFO] Epoch [0]. Batch [48000]. Loss [0.017839]. Time 592.8 sec
+2019-03-12 09:39:10,028 [INFO] Epoch [0]. Batch [51200]. Loss [0.017655]. Time 632.6 sec
+2019-03-12 09:39:49,660 [INFO] Epoch [0]. Batch [54400]. Loss [0.017464]. Time 672.2 sec
+2019-03-12 09:40:29,112 [INFO] Epoch [0]. Batch [57600]. Loss [0.017286]. Time 711.7 sec
+2019-03-12 09:41:09,246 [INFO] Epoch [0]. Batch [60800]. Loss [0.017118]. Time 751.8 sec
+2019-03-12 09:41:48,775 [INFO] Epoch [0]. Batch [64000]. Loss [0.016965]. Time 791.4 sec
+2019-03-12 09:42:28,294 [INFO] Epoch [0]. Batch [67200]. Loss [0.016844]. Time 830.9 sec
+2019-03-12 09:43:07,796 [INFO] Epoch [0]. Batch [70400]. Loss [0.016715]. Time 870.4 sec
+2019-03-12 09:43:47,570 [INFO] Epoch [0]. Batch [73600]. Loss [0.016600]. Time 910.2 sec
+2019-03-12 09:44:27,524 [INFO] Epoch [0]. Batch [76800]. Loss [0.016483]. Time 950.1 sec
+2019-03-12 09:45:07,539 [INFO] Epoch [0]. Batch [80000]. Loss [0.016375]. Time 990.1 sec
+2019-03-12 09:45:47,084 [INFO] Epoch [0]. Batch [83200]. Loss [0.016284]. Time 1029.7 sec
+2019-03-12 09:46:27,085 [INFO] Epoch [0]. Batch [86400]. Loss [0.016197]. Time 1069.7 sec
+2019-03-12 09:47:06,973 [INFO] Epoch [0]. Batch [89600]. Loss [0.016113]. Time 1109.6 sec
+2019-03-12 09:47:46,580 [INFO] Epoch [0]. Batch [92800]. Loss [0.016025]. Time 1149.2 sec
+2019-03-12 09:48:26,422 [INFO] Epoch [0]. Batch [96000]. Loss [0.015947]. Time 1189.0 sec
+2019-03-12 09:49:05,618 [INFO] Epoch [0]. Batch [99200]. Loss [0.015870]. Time 1228.2 sec
+2019-03-12 09:49:46,142 [INFO] Epoch [0]. Batch [102400]. Loss [0.015811]. Time 1268.7 sec
+2019-03-12 09:50:28,690 [INFO] Epoch [0]. Batch [105600]. Loss [0.015746]. Time 1311.3 sec
+2019-03-12 09:51:08,315 [INFO] Epoch [0]. Batch [108800]. Loss [0.015682]. Time 1350.9 sec
+2019-03-12 09:51:47,521 [INFO] Epoch [0]. Batch [112000]. Loss [0.015619]. Time 1390.1 sec
+2019-03-12 09:52:27,273 [INFO] Epoch [0]. Batch [115200]. Loss [0.015558]. Time 1429.9 sec
+2019-03-12 09:53:06,631 [INFO] Epoch [0]. Batch [118400]. Loss [0.015510]. Time 1469.2 sec
+2019-03-12 09:53:46,391 [INFO] Epoch [0]. Batch [121600]. Loss [0.015458]. Time 1509.0 sec
+2019-03-12 09:54:26,079 [INFO] Epoch [0]. Batch [124800]. Loss [0.015409]. Time 1548.7 sec
+2019-03-12 09:55:05,825 [INFO] Epoch [0]. Batch [128000]. Loss [0.015356]. Time 1588.4 sec
+2019-03-12 09:55:45,515 [INFO] Epoch [0]. Batch [131200]. Loss [0.015308]. Time 1628.1 sec
+2019-03-12 09:56:24,999 [INFO] Epoch [0]. Batch [134400]. Loss [0.015268]. Time 1667.6 sec
+2019-03-12 09:57:04,961 [INFO] Epoch [0]. Batch [137600]. Loss [0.015227]. Time 1707.5 sec
+2019-03-12 09:57:44,542 [INFO] Epoch [0]. Batch [140800]. Loss [0.015187]. Time 1747.1 sec
+2019-03-12 09:58:24,530 [INFO] Epoch [0]. Batch [144000]. Loss [0.015142]. Time 1787.1 sec
+2019-03-12 09:59:04,247 [INFO] Epoch [0]. Batch [147200]. Loss [0.015104]. Time 1826.8 sec
+2019-03-12 09:59:44,019 [INFO] Epoch [0]. Batch [150400]. Loss [0.015071]. Time 1866.6 sec
+2019-03-12 10:00:23,985 [INFO] Epoch [0]. Batch [153600]. Loss [0.015035]. Time 1906.6 sec
+2019-03-12 10:01:03,884 [INFO] Epoch [0]. Batch [156800]. Loss [0.015002]. Time 1946.5 sec
+2019-03-12 10:01:43,723 [INFO] Epoch [0]. Batch [160000]. Loss [0.014965]. Time 1986.3 sec
+2019-03-12 10:02:23,689 [INFO] Epoch [0]. Batch [163200]. Loss [0.014934]. Time 2026.3 sec
+2019-03-12 10:03:03,277 [INFO] Epoch [0]. Batch [166400]. Loss [0.014902]. Time 2065.9 sec
+2019-03-12 10:03:43,506 [INFO] Epoch [0]. Batch [169600]. Loss [0.014874]. Time 2106.1 sec
+2019-03-12 10:04:22,954 [INFO] Epoch [0]. Batch [172800]. Loss [0.014844]. Time 2145.5 sec
+2019-03-12 10:05:02,709 [INFO] Epoch [0]. Batch [176000]. Loss [0.014811]. Time 2185.3 sec
+2019-03-12 10:05:42,664 [INFO] Epoch [0]. Batch [179200]. Loss [0.014784]. Time 2225.2 sec
+2019-03-12 10:06:22,285 [INFO] Epoch [0]. Batch [182400]. Loss [0.014757]. Time 2264.9 sec
+2019-03-12 10:07:02,181 [INFO] Epoch [0]. Batch [185600]. Loss [0.014732]. Time 2304.8 sec
+2019-03-12 10:07:41,580 [INFO] Epoch [0]. Batch [188800]. Loss [0.014708]. Time 2344.2 sec
+2019-03-12 10:08:21,481 [INFO] Epoch [0]. Batch [192000]. Loss [0.014680]. Time 2384.1 sec
+2019-03-12 10:09:00,804 [INFO] Epoch [0]. Batch [195200]. Loss [0.014653]. Time 2423.4 sec
+2019-03-12 10:09:40,785 [INFO] Epoch [0]. Batch [198400]. Loss [0.014628]. Time 2463.4 sec
+2019-03-12 10:10:20,484 [INFO] Epoch [0]. Batch [201600]. Loss [0.014608]. Time 2503.1 sec
+2019-03-12 10:11:00,240 [INFO] Epoch [0]. Batch [204800]. Loss [0.014586]. Time 2542.8 sec
+2019-03-12 10:11:40,503 [INFO] Epoch [0]. Batch [208000]. Loss [0.014564]. Time 2583.1 sec
+2019-03-12 10:12:21,184 [INFO] Epoch [0]. Batch [211200]. Loss [0.014541]. Time 2623.8 sec
+2019-03-12 10:13:01,260 [INFO] Epoch [0]. Batch [214400]. Loss [0.014518]. Time 2663.8 sec
+2019-03-12 10:13:40,829 [INFO] Epoch [0]. Batch [217600]. Loss [0.014500]. Time 2703.4 sec
+2019-03-12 10:14:43,979 [INFO] Using 1 threads for decoding...
+2019-03-12 10:14:43,980 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 10:14:43,980 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-12 10:14:45,709 [INFO] Using 1 threads for decoding...
+2019-03-12 10:14:45,709 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 10:14:45,709 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/val.rec...
+2019-03-12 10:14:46,163 [INFO] Start training on gpu(0)
+2019-03-12 11:07:18,341 [INFO] Using 1 threads for decoding...
+2019-03-12 11:07:19,303 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 11:07:24,976 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-12 11:26:00,632 [INFO] Using 1 threads for decoding...
+2019-03-12 11:26:00,637 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 11:26:00,640 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/val.rec...
+2019-03-12 11:29:30,782 [INFO] Start training on gpu(0)
+2019-03-12 11:39:35,834 [INFO] Using 1 threads for decoding...
+2019-03-12 11:39:35,835 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 11:39:35,835 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-12 11:39:51,742 [INFO] Using 1 threads for decoding...
+2019-03-12 11:39:51,742 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-12 11:39:51,742 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/val.rec...
+2019-03-12 11:39:52,182 [INFO] Start training on gpu(0)
+2019-03-13 13:18:23,522 [INFO] Using 1 threads for decoding...
+2019-03-13 13:18:23,542 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-13 13:18:23,550 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-13 15:18:21,443 [INFO] Using 1 threads for decoding...
+2019-03-13 15:18:21,444 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-13 15:18:21,444 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-13 15:20:19,578 [INFO] Using 1 threads for decoding...
+2019-03-13 15:20:19,579 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-13 15:20:19,579 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-13 15:20:32,596 [INFO] Using 1 threads for decoding...
+2019-03-13 15:20:32,596 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-13 15:20:32,597 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/val.rec...
+2019-03-13 15:20:35,209 [INFO] Start training on gpu(0)
+2019-03-14 14:32:49,837 [INFO] Using 1 threads for decoding...
+2019-03-14 14:32:49,849 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-14 14:32:49,850 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-14 14:32:51,453 [INFO] Using 1 threads for decoding...
+2019-03-14 14:32:51,453 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-14 14:32:51,453 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/val.rec...
+2019-03-14 14:32:51,879 [INFO] Start training on gpu(0)
+2019-03-16 19:03:40,012 [INFO] Using 1 threads for decoding...
+2019-03-16 19:03:40,018 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-16 19:03:40,018 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-16 19:03:41,277 [INFO] Using 1 threads for decoding...
+2019-03-16 19:03:41,277 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-16 19:03:41,277 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/val.rec...
+2019-03-16 19:03:41,628 [INFO] Start training on gpu(0)
+2019-03-16 19:04:14,437 [INFO] Epoch [0]. Batch [3200]. Loss [0.044675]. Time 32.8 sec
+2019-03-16 19:04:14,437 [INFO] Train acc: ('accuracy', 0.9687171970965941) ('mae', 0.010852963626384736) 
+2019-03-16 19:04:45,399 [INFO] Epoch [0]. Batch [6400]. Loss [0.031782]. Time 63.8 sec
+2019-03-16 19:04:45,399 [INFO] Train acc: ('accuracy', 0.980488619311837) ('mae', 0.010244797125924378) 
+2019-03-16 19:05:16,411 [INFO] Epoch [0]. Batch [9600]. Loss [0.027100]. Time 94.8 sec
+2019-03-16 19:05:16,412 [INFO] Train acc: ('accuracy', 0.9844275631630374) ('mae', 0.009972768733277917) 
+2019-03-16 19:05:47,522 [INFO] Epoch [0]. Batch [12800]. Loss [0.024525]. Time 125.9 sec
+2019-03-16 19:05:47,522 [INFO] Train acc: ('accuracy', 0.9864280386306533) ('mae', 0.009761793814832345) 
+2019-03-16 19:06:18,313 [INFO] Epoch [0]. Batch [16000]. Loss [0.022948]. Time 156.7 sec
+2019-03-16 19:06:18,314 [INFO] Train acc: ('accuracy', 0.9875981382607482) ('mae', 0.00965861244313419) 
+2019-03-16 19:06:49,064 [INFO] Epoch [0]. Batch [19200]. Loss [0.021997]. Time 187.4 sec
+2019-03-16 19:06:49,065 [INFO] Train acc: ('accuracy', 0.98839498418016) ('mae', 0.009563707651104779) 
+2019-03-16 19:09:00,250 [INFO] Using 1 threads for decoding...
+2019-03-16 19:09:00,250 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-16 19:09:00,250 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/train.rec...
+2019-03-16 19:09:01,472 [INFO] Using 1 threads for decoding...
+2019-03-16 19:09:01,472 [INFO] Set enviroment variable MXNET_CPU_WORKER_NTHREADS to a larger number to use more threads.
+2019-03-16 19:09:01,472 [INFO] ImageDetIter: loading recordio /home/lijc08/datasets/voc/val.rec...
+2019-03-16 19:09:01,817 [INFO] Start training on gpu(0)
+2019-03-16 19:09:35,192 [INFO] Epoch [0]. Batch [3200]. Loss [0.044506]. Loss_cls [0.036979]. Loss_box [0.007527]. Time 33.4 sec
+2019-03-16 19:09:35,192 [INFO] Train acc: ('accuracy', 0.9689075586264657) ('mae', 0.010717708766460419) 
+2019-03-16 19:10:06,646 [INFO] Epoch [0]. Batch [6400]. Loss [0.031704]. Loss_cls [0.024651]. Loss_box [0.007053]. Time 31.5 sec
+2019-03-16 19:10:06,646 [INFO] Train acc: ('accuracy', 0.9805837564558906) ('mae', 0.010190566978417337) 
+2019-03-16 19:10:38,192 [INFO] Epoch [0]. Batch [9600]. Loss [0.027053]. Loss_cls [0.020248]. Loss_box [0.006804]. Time 31.5 sec
+2019-03-16 19:10:38,192 [INFO] Train acc: ('accuracy', 0.9844873092313419) ('mae', 0.009932832292591532) 

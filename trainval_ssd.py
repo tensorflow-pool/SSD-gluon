@@ -2,21 +2,23 @@
 """
 gulon implement of SSD: Single Shot MultiBox Object Detector.
 """
-import os
 import argparse
 import logging
+import os
+
 import mxnet as mx
 from mxnet import gluon
-from net import SSD
-from data import get_iterators
+
 import utils
+from data import get_iterators
+from net import SSD
 
 # logging
-log_file = "./model/SSD_300x300.log" # SSD with 300 * 300 images.
+log_file = "./model/SSD_300x300.log"  # SSD with 300 * 300 images.
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(message)s',
-                   filename=log_file,
-                   level=logging.INFO,
-                   filemode='a+')
+                    filename=log_file,
+                    level=logging.INFO,
+                    filemode='a+')
 logging.getLogger().addHandler(logging.StreamHandler())
 
 if __name__ == '__main__':
@@ -30,39 +32,39 @@ if __name__ == '__main__':
     # Not need data augmentations.
     parser.set_defaults(
         # data
-        data_dir = "./datasets/VOC0712", # We transfer data_dir directly. PASCAL VOC.
+        data_dir=os.path.expanduser("~/datasets/voc/"),  # We transfer data_dir directly. PASCAL VOC.
         # data_dir = "./datasets/pikachu", # pikachu
-        batch_size = 64,
-        data_shape = (3, 300, 300), # 300 * 300.
+        batch_size=32,
+        data_shape=(3, 300, 300),  # 300 * 300.
         # rgb_mean = nd.array([123, 117, 104]), # not need currently.
         # class_names = [""], # Use class_names when predicting the box of giving image.
         # colors = [""], # Use colors when predicting the class of giving image.
-        num_classes = 20, # In the succeeding process, num_classes will plus 1.
+        num_classes=20,  # In the succeeding process, num_classes will plus 1.
         # anchor box sizes and ratios for 5 feature scales. May have other choices.
-        sizes = [[.2, .272], [.37, .447], [.54, .619], 
-                      [.71, .79], [.88, .961]],
-        ratios = [[1, 2, .5]] * 5, 
+        sizes=[[.2, .272], [.37, .447], [.54, .619],
+               [.71, .79], [.88, .961]],
+        ratios=[[1, 2, .5]] * 5,
         # [[1, 2, 0.5], [1, 2, 0.5], [1, 2, 0.5], [1, 2, 0.5], [1, 2, 0.5]].
 
         # train and val
-        disp_batches = 100,
-        num_epochs = 1, # 30, epoch from 0 to 29.
+        disp_batches=100,
+        num_epochs=1,  # 30, epoch from 0 to 29.
         # optim
         # From random init to train.
-        optimizer = 'adam', 
-        lr = 0.001, # init lr is 1e-3.
+        optimizer='adam',
+        lr=0.001,  # init lr is 1e-3.
         # lr_step_epochs, the epochs to reduce the lr, e.g. lr_step_epochs = '15,20'.
-        lr_step_epochs = None,
+        lr_step_epochs=None,
         # lr_step_epochs = '26,28,30,32,34',
         # lr_decay, the ratio to reduce lr on each step. e.g. lr_decay = 0.1.
-        lr_decay = 0.1,
+        lr_decay=0.1,
 
         # chechpoint
         # load_epoch. Load trained model, load_epoch is the epoch of the model. e.g. load_epoch = 28.
-        load_epoch = 0, # Load trained model. if load_epoch is 0, represent from random init to train.
+        load_epoch=0,  # Load trained model. if load_epoch is 0, represent from random init to train.
         # model_prefix, the prefix of save checkp, e.g., SSD_300x300.params.
-        model_prefix = 'model/SSD_300x300',
-        )
+        model_prefix='model/SSD_300x300',
+    )
     args = parser.parse_args()
 
     # context
@@ -102,12 +104,12 @@ if __name__ == '__main__':
     use trainer.learning_rate!
     '''
     trainer = gluon.Trainer(net.collect_params(),
-              'sgd', {'learning_rate': 0.1, 'wd': 5e-4})
-              # args.optimizer, {'learning_rate': args.lr})
+                            'sgd', {'learning_rate': 0.1, 'wd': 5e-4})
+    # args.optimizer, {'learning_rate': args.lr})
 
     utils.train(batch_size=args.batch_size,
-                train_data=train, 
-                test_data=val, 
+                train_data=train,
+                test_data=val,
                 net=net,
                 trainer=trainer,
                 ctx=ctx,

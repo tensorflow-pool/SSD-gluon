@@ -21,8 +21,8 @@ def get_iterators(args):
     train_iter = mx.image.ImageDetIter(
         batch_size = args.batch_size,
         data_shape = args.data_shape,
-        path_imgrec = os.path.join(args.data_dir, "trainval.rec"), 
-        path_imgidx = os.path.join(args.data_dir, "trainval.idx"), # pikachu_train, trainval
+        path_imgrec = os.path.join(args.data_dir, "train.rec"),
+        path_imgidx = os.path.join(args.data_dir, "train.idx"), # pikachu_train, trainval
         shuffle = True)
     # For training data, we can transfer *.idx. In this way, the process of shuffle is better.
     # You can see this discussion on https://discuss.gluon.ai/t/topic/3331/6. The seed is not fixed when
